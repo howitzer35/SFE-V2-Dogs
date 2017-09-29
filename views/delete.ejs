@@ -1,0 +1,34 @@
+<ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Delete Employee</a></li>
+</ol>
+
+<br/>
+
+<%- partial ('partials/statusmessage.ejs') %>
+
+<h2>Delete Dog</h2>
+
+<div style="text-align: center; padding-top:50px">
+  <form action="/delete" method="POST">
+    <div class="form-group">
+      <label for="dog_id">SELECT A DOG TO DELETE</label><br/>
+
+      <select class="selectpicker" name="id" data-live-search="true" data-header="Select a dog" title="Select one of the following">
+      <% if(typeof dogs != "undefined" && dogs.length > 0){ %>
+        <% dogs.forEach(function(dog){ %>
+          <option value="<%= dog.id %>" data-icon="glyphicon glyphicon-user">
+            <%= dog.name %>
+          </option>
+        <% }) %>
+      <% } %>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-danger">
+        DELETE DOG
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </button>
+    </div>
+  </form>
+</div>

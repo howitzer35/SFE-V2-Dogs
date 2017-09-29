@@ -1,0 +1,35 @@
+<ol class="breadcrumb">
+    <li class="active">Home</a></li>
+</ol>
+
+<br/>
+
+<%- partial ('partials/statusmessage.ejs') %>
+
+<h2>Dogs</h2>
+<table class="table table-striped table-bordered" id="dogTable" style="width:100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height in Inches</th>
+      <th>Weight in Pounds</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% if(typeof dogs != "undefined" && dogs.length > 0){ %>
+    <% dogs.forEach(function(dog){ %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.sex %></td>
+        <td><%= dog.age %></td>
+        <td><%= dog.height_in_inches %></td>
+        <td><%= dog.weight_in_pounds %></td>
+      </tr>
+    <% }) %>
+  <% } %>
+  </tbody>
+</table>
